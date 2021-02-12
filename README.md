@@ -37,9 +37,10 @@ Explanation of the less-obvious flags:
 ### -d, --debugging
 
 Write out the command line options selected. For each page of the eventlog scraped:
-    * output the page number and url and whether a "next" button is found
-    * write the full page html to the debugging/ directory
-    * write a full screenshot to the debugging/ directory
+
+* output the page number and url and whether a "next" button is found
+* write the full page html to the debugging/ directory
+* write a full screenshot to the debugging/ directory
 
 ### -y, --assumed-year <year>
 
