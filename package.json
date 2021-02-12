@@ -1,0 +1,16 @@
+{
+  "name": "hhlog",
+  "version": "1.0.0",
+  "description": "Fetch eventlog from a BT HomeHub5",
+  "main": "index.js",
+  "scripts": {
+    "hhlog": "node hhlog.js"
+  },
+  "author": "Phil Gleghorn",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^7.0.0",
+    "moment": "^2.29.1",
+    "playwright": "^1.8.0"
+  }
+}
