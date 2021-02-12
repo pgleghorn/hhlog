@@ -15,6 +15,8 @@ program
   .option('-a, --address <address>', 'Router host/ip address')
   .option('-p, --admin-password <pw>', 'Admin password')
   .option('-w, --write-logfile <filename>', 'Write log to filename')
+  .option('-t, --timestamp-string', 'Write timestamp as toString() format instead of ISO8601', false)
+
 
 program.parse(process.argv);
 const options = program.opts();
@@ -80,8 +82,11 @@ const idx_troubleshooting_eventlog = 9144;
                 logmsg = logmsg.replace(/^\([ ]*[0-9]*.[0-9]*\) /i, '');
             }
             logmsg = logmsg.replace(/[\u200B-\u200D\uFEFF]/g, '');
+            if (!options.timestampString) {
+                timestamp = timestamp.format();
+            }
             if (options.writeLogfile) {
-                fs.appendFileSync(options.writeLogfile, `${timestamp}: ${logmsg}`);
+                fs.appendFileSync(options.writeLogfile, `${timestamp}: ${logmsg}\n`);
             } else {
                 console.log(`${timestamp}: ${logmsg}`);
             }
